@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kullanıcı Giriş Ekranı</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../css/giris.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cont">
+      <div class="form sign-in">
+        <h2>Lütfen Giriş Yapın</h2>
+        <br />
+        <label>
+          <span>E-posta adresiniz</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Şifreniz</span>
+          <input type="password" name="password" required />
+        </label>
+        <a href="../index.html"
+          ><button class="submit" type="button">GİRİŞ YAP</button></a
+        >
+        <a href="../index.html"><p class="forgot-pass">Şifremi Unuttum</p></a>
+      </div>
+
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img-text m-up">
+            <h1>Yeni misiniz?</h1>
+            <br />
+            <p style="font-weight: bold">
+              Kaydolun ve çok sayıda yeni fırsatı keşfedin!
+            </p>
+            <br />
+            <p style="color: rgb(208, 255, 0)">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Molestias voluptas repudiandae, dicta fugiat reprehenderit
+              consectetur a dolores dolore nostrum ipsa. Odio quo incidunt
+              facilis delectus.
+            </p>
+          </div>
+          <div class="img-text m-in">
+            <h1>Üyeliğiniz var mı?</h1>
+            <br />
+            <br />
+            <p style="font-weight: bold">
+              Halihazırda bir hesabınız varsa giriş yap seçeneğinden giriş
+              yapın.
+            </p>
+          </div>
+          <div class="img-btn">
+            <span class="m-up">Kayıt OL</span>
+            <span class="m-in">GİRİŞ YAP</span>
+          </div>
+        </div>
+        <div class="form sign-up">
+          <h2>Kayıt Formu</h2>
+          <label>
+            <span>İsim</span>
+            <input type="text" required />
+          </label>
+          <label>
+            <span>Soyisim</span>
+            <input type="text" required />
+          </label>
+          <label>
+            <span>E-posta</span>
+            <input type="email" required />
+          </label>
+          <label>
+            <span>Telefon</span>
+            <input type="text" required />
+          </label>
+          <label>
+            <span>Sektör</span>
+            <input type="text" required />
+          </label>
+          <label>
+            <span>Kişi seviyesi</span>
+            <input type="text" required />
+          </label>
+          <label>
+            <span>Firma Tipi</span>
+            <input type="text" required />
+          </label>
+          <label>
+            <span>Firma Adı</span>
+            <input type="text" required />
+          </label>
+          <a href="kayitSon.html"
+            ><button type="button" class="submit">Kaydı Tamamla</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    document.querySelector(".img-btn").addEventListener("click", function () {
+      document.querySelector(".cont").classList.toggle("s-signup");
+    });
+  </script>
+</html>

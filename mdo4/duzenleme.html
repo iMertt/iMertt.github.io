@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ziyaret Raporları</title>
+    <!-- Bootstrap CSS link -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding: 20px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      #commentsList {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <?php require_once('assets/sidebar.php'); ?>
+    <div class="container">
+      <h2>Ziyaret Raporları</h2>
+      <form>
+        <div class="form-group">
+          <label for="customerName">Müşteri Adı:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="customerName"
+            oninput="autocompleteCustomer()"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="visitedPerson">Görüşülen Kişi:</label>
+          <input type="text" class="form-control" id="visitedPerson" required />
+        </div>
+        <div class="form-group">
+          <label for="comments">Yorum:</label>
+          <textarea class="form-control" id="comments" rows="4"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="submitReport()">
+          Raporu Gönder
+        </button>
+      </form>
+      <hr />
+      <h4>Yorumlar</h4>
+      <ul id="commentsList">
+        <!-- Yorumlar dinamik olarak buraya eklenecek -->
+      </ul>
+    </div>
+
+    <!-- Bootstrap JS and your custom script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      var customerNames = ["Ahmet", "Mehmet", "Ayşe", "Fatma"]; // Örnek müşteri adları
+
+      function autocompleteCustomer() {
+        var input = document.getElementById("customerName");
+        var autocompleteList = document.getElementById("autocompleteList");
+
+        autocompleteList.innerHTML = ""; // Her seferinde temizle
+
+        if (input.value.length === 0) {
+          return;
+        }
+
+        var matches = customerNames.filter((name) =>
+          name.includes(input.value)
+        );
+
+        if (matches.length === 0) {
+          return;
+        }
+
+        matches.forEach((match) => {
+          var option = document.createElement("div");
+          option.innerHTML = match;
+          option.addEventListener("click", function () {
+            input.value = match;
+            autocompleteList.innerHTML = ""; // Seçildikten sonra temizle
+          });
+          autocompleteList.appendChild(option);
+        });
+      }
+
+      function submitReport() {
+        var customerName = $("#customerName").val();
+        var visitedPerson = $("#visitedPerson").val();
+        var comments = $("#comments").val();
+        var currentDate = new Date().toLocaleString();
+
+        if (customerName === "") {
+          alert("Müşteri adı alanı gereklidir.");
+          return;
+        }
+
+        if (visitedPerson === "") {
+          alert("Görüşülen kişi alanı gereklidir.");
+          return;
+        }
+
+        // Oluşturulan raporu yorumlar listesine ekleyin
+        var report =
+          "<li><strong>Müşteri:</strong> " +
+          customerName +
+          "<br><strong>Görüşülen Kişi:</strong> " +
+          visitedPerson +
+          "<br><strong>Yorum:</strong> " +
+          comments +
+          "<br><strong>Oluşturma Tarihi:</strong> " +
+          currentDate +
+          "</li>";
+        $("#commentsList").append(report);
+
+        // Form alanlarını temizleyin
+        $("#customerName").val("");
+        $("#visitedPerson").val("");
+        $("#comments").val("");
+      }
+    </script>
+  </body>
+</html>

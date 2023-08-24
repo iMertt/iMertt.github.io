@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kayıt tamamlandı</title>
+    <style>
+      body {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        position: relative; /* Body için position'ı belirliyoruz */
+      }
+
+      .background-image-div {
+        background-image: url(../images/logo.png);
+        opacity: 1; /* 0 ile 1 arasında bir değer */
+        width: 100%;
+        height: 100vh; /* Sayfanın tam yüksekliği */
+      }
+
+      .anasayfa {
+        width: 50%;
+        height: 100vh; /* Sayfanın tam yüksekliği */
+      }
+      .giris {
+        width: 50%;
+        height: 100vh; /* Sayfanın tam yüksekliği */
+      }
+      .message {
+        position: absolute; /* Konumunu belirliyoruz */
+        top: 50%; /* Yüksekliğin yarısı kadar aşağıda */
+        left: 50%; /* Genişliğin yarısı kadar sağda */
+        transform: translate(-50%, -50%); /* Merkezden hizalıyoruz */
+        background-color: rgb(228, 228, 228);
+        padding: 20px;
+        border-radius: 50px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1; /* Üzerindekilerden üstte görünmesini sağlıyoruz */
+        font-size: large;
+        font-weight: bold;
+      }
+      a {
+        text-align: center;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="message">
+      <p>
+        Kaydınız başarılı bir şekilde tamamlandı. Tarafımızdan incelendikten
+        sonra bize vermiş olduğunuz e-posta aracılığı ile sizi bilgilendireceğiz
+        bla bla bla
+      </p>
+    </div>
+    <div class="anasayfa">
+      <a href="/index.php"><h1>Anasayfa Dön</h1></a>
+    </div>
+    <div class="giris">
+      <a href="giris.html"><h1>Giriş Ekranına Dön</h1></a>
+    </div>
+  </body>
+</html>
